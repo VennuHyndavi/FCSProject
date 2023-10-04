@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block encrypt %} active {% endblock %}
+{% block content %}
+<br>
+<br><br><br><br>
+
+<center>
+    <h1>Encryption</h1>
+</center>
+<div class="row" style="margin-top: 150px">
+    <div class="col-xl-6 col-md-6 mt-1" >
+        
+    <form class="ml-5" method="POST" action="/encrypt" enctype="multipart/form-data">
+        
+        <a style="font-size: larger; font-weight: 600;">Enter the receiver name:</a>
+        <input type="text" name="rname"><br><br>
+        <a style="font-size: larger; font-weight: 600;">Enter the message:</a>
+        <input type="text" name="msg"><br><br>
+        <a style="font-size: larger; font-weight: 600;">Choose the image:</a>
+        <input type="file" placeholder="select image" name="myimage"><br><br><br>
+        <input type="submit">
+        
+    </form>
+    </div>
+    <br>
+    <div class="col-xl-6 col-md-6 mt-1 ">
+        <center>
+    {% if name != ""%}
+        <div style="align-content: center;">
+            <h3> Encrypted Successfully</h3>
+    		<img src="{{img}}" alt="User Image" height="300px" width="430px">
+            <h3>{{name}}</h3>
+  		</div>
+    
+    {% else %}
+        <h3> Encrypted Image will be shown here </h3>
+    {% endif %}
+	</center>
+    </div>
+</div>
+
+
+
+{% endblock %}

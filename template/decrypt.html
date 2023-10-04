@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block decrypt %} active {% endblock %}
+{% block content %}
+<br>
+<br><br><br><br>
+
+<center>
+    <h1>Decryption</h1>
+</center>
+<div class="row" style="margin-top: 150px">
+    <div class="col-xl-6 col-md-6 mt-1" >
+        
+    <form class="ml-5" method="POST" action="/decrypt" enctype="multipart/form-data">
+        
+        <a style="font-size: larger; font-weight: 600;">Enter the sender name:</a>
+        <input type="text" name="rname"><br><br>
+        <a style="font-size: larger; font-weight: 600;">Choose the image to decrypt:</a>
+        <input type="file" placeholder="select image" name="myimage"><br><br><br>
+        <input type="submit">
+        
+    </form>
+    </div>
+    <br>
+    <div class="col-xl-6 col-md-6 mt-1 ">
+        <center>
+    {% if msg != ""%}
+        <div style="align-content: center;">
+            <h3><u> Decrypted Successfully</u></h3>
+            <h3>{{msg}}</h3>
+  		</div>
+    {% else %}
+        <h3> Decrypted message will be shown here </h3>
+    {% endif %}
+	</center>
+    </div>
+</div>
+
+
+
+{% endblock %}

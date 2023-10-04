@@ -1,0 +1,112 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <title>DR detection</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- Custom CSS -->
+    
+    {%block style%}{%endblock%}
+    <style>
+        html {
+            overflow: scroll;
+            overflow-x: hidden;
+        }
+        .navbar-custom {
+            top:0px;
+            background-color: black;
+            width: 100%;
+            box-shadow: 0px 0px 0px rgba(0,0,0,0.5);
+            position: fixed;
+            z-index: 5;
+            transition: all 0.4s ease;
+        }
+        .navbar-custom .navbar-nav .nav-link {
+            color:white;
+            font-family: sans-serif;
+        }
+
+        .navbar-brand {
+            margin-right: 100px;
+            font-family: 'Piedra';
+            font-size: 22px;
+        }
+
+        .navbar-custom .nav-item.active .nav-link, .navbar-custom .nav-item:hover .nav-link {
+            padding: 5px;
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            transition: all 0.4s ease;
+        }
+
+        .nav-item {
+            margin: 5px;
+        }
+
+
+    </style>
+</head>
+<body  style="background-image: url('https://cdn.wallpapersafari.com/64/98/WQ3d6V.jpg');color:#0d0c0d;" >
+		
+    <nav class="navbar navbar-expand-lg navbar-custom navbar-dark" id="header">
+        <a href="home" class="navbar-brand">Stegacrypt</a>
+		
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item {% block encrypt%} {% endblock %}">
+                    <a href="encrypt" class="nav-link">Encrypt</a>
+                </li>
+				<li class="nav-item  {%block decrypt%}{%endblock%}">
+                    <a href="decrypt" class="nav-link" >Decrypt</a>
+                </li>
+                
+                
+                <li class="nav-item " style="float:right;margin-left: 900px;">
+                    <a href="logout" class="nav-link" {%block logout%}{%endblock%}>logout</a>
+                </li>
+				
+            </ul>
+        </div>
+    </nav>
+	
+
+ {% block content%}   
+ {% endblock %}
+ 
+<script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+        var currentScrollPos = window.pageYOffset;
+
+        if (prevScrollpos > currentScrollPos) {
+
+            var ww = $(window).width();
+            document.getElementById("header").style.top = "0";
+            document.getElementById("header").style.background = "black";
+            document.getElementById("header").style.boxShadow = "0px 3px 6px rgba(0,0,0,0.5)";
+
+        } else {
+            document.getElementById("header").style.top = "-80px";
+            document.getElementById("header").style.background = "black";
+        }
+        if (currentScrollPos == 0) {
+            document.getElementById("header").style.background = "black";
+            document.getElementById("header").style.boxShadow = "none";
+        }
+        prevScrollpos = currentScrollPos;
+    }
+</script>
+
+</body>
+
+</html>

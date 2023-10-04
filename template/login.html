@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block history %} hidden {% endblock %}
+{% block predict %} hidden {% endblock %}
+{% block logout %} hidden {% endblock %}
+
+{% block login %} active {% endblock %}
+
+{% block content %}
+
+    <div class="row" style="margin-top: 150px">
+    <div class="col-xl-5" style="padding:0px;">
+      
+        <img class="login-image" style="max-width: 1000px; max-height: 400px;margin-left: 60px;"
+            src="https://triskelelabs.com/wp-content/uploads/2020/11/shutterstock_1152748454.jpg">
+            
+          </div>
+          <div class="login col-xl-1"></div>
+        <div class="login col-xl-6">
+          <form class="login form-signin" method="POST" action="/login">
+        
+            <h2>Welcome</h2>
+            <hr>
+              <h6 style="color:red;"> {{msg}}</h6>
+            <div id="div_id_login" class="form-group">
+              <label for="id_login" class="control-label requiredField">
+                Username<span class="asteriskField">*</span>
+              </label>
+              <input class="textinput textInput form-control" required id="id_username" name="uname" placeholder="Username" type="text" autofocus="autofocus" autocomplete="off">
+          
+            </div>
+  
+            <div id="div_id_password" class="form-group">
+              <label for="id_password" class="control-label" requiredField>
+                Password<span class="asteriskField">*</span>
+              </label>
+              <div class="control">
+                <input class="textinput textInput form-control" required id="id_password" name="login_password" placeholder="Password" type="password">
+           </div>
+            </div>
+            <br>
+            <br>
+            <button class="primaryAction btn btn-lg btn-primary btn-block" type="submit">
+              Sign In
+            </button>
+            <br>Don't have an account? <a href="signup">sign up</a>
+          </form>
+        </div>
+        </div>
+
+{% endblock %}

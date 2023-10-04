@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block home%} active {% endblock %}
+{% block content %}
+<br>
+<br><br><br><br>
+
+<div>
+    {% for row in results %}
+         <!-- <tr>
+             <td>{{ row[0] }}</td>
+             <td>{{ row[1] }}</td>
+             <td>{{ row[2] }}</td>
+             <td>{{ row[3] }}</td>
+          </tr>
+        -->
+    {% endfor %}
+    <p>Hello, choose encryption or decryption!</p>
+    </div>
+
+{% endblock %}
